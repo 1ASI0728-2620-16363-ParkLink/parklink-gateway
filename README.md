@@ -1,23 +1,23 @@
-# API Gateway
+# Pasarela de API
 
-The public entry point for ParkLink clients; it authenticates requests and forwards them to the appropriate internal service.
+Punto de entrada de las aplicaciones de ParkLink: autentica las solicitudes y las dirige al servicio interno correspondiente.
 
-## Responsibilities
+## Responsabilidades
 
-- Routes authentication, search, supply, reservation, payment, notification, Copilot and audit requests.
-- Provides a boundary between mobile/web clients and private services.
+- Dirige las solicitudes de identidad, búsqueda, publicaciones, reservas, pagos, notificaciones, asistente y auditoría.
+- Separa a los clientes móviles y web de los servicios privados.
 
-## Technology
+## Tecnologías
 
 TypeScript, NestJS.
 
-## C4 architecture
+## Arquitectura C4
 
-The diagram is a C4 **container view** focused on this repository and its relevant neighbors. It is generated from [Structurizr DSL](docs/architecture/workspace.dsl) using default styles, without custom colors. Arrows show the direction of an interaction; the full model also records message flows.
+El diagrama muestra una **vista de contenedores C4** centrada en este componente y sus relaciones relevantes. Se genera desde [Structurizr DSL](docs/architecture/workspace.dsl) con los estilos predeterminados, sin colores personalizados. Las flechas indican la dirección de cada interacción. El diagrama se conserva en inglés.
 
-![C4 container view: API Gateway](docs/architecture/containers.svg)
+![Diagrama C4 de Pasarela de API](docs/architecture/containers.svg)
 
-To inspect or regenerate the diagram, open `docs/architecture/workspace.dsl` in Structurizr. With the Structurizr CLI and Graphviz installed:
+Para consultar o regenerar el diagrama, abra `docs/architecture/workspace.dsl` en Structurizr. Con Structurizr CLI y Graphviz instalados:
 
 ```sh
 structurizr.sh validate -workspace docs/architecture/workspace.dsl
@@ -26,7 +26,7 @@ structurizr.sh export -workspace docs/architecture/workspace.dsl -format dot -ou
 dot -Tsvg /tmp/parklink-diagram/structurizr-Containers.dot -o docs/architecture/containers.svg
 ```
 
-## Build in the integrated workspace
+## Compilación en el espacio integrado
 
 ```sh
 npm ci
@@ -34,6 +34,6 @@ npm run build:shared
 npm run build -w @parklink/gateway
 ```
 
-## Repository boundary
+## Relación con el proyecto
 
-This repository is a snapshot of `gateway` from [parklink-platform](https://github.com/1ASI0728-2620-16363-ParkLink/parklink-platform). Use the integrated workspace for the root npm configuration, shared dependencies, Docker build context, tests and local infrastructure. The repositories do not automatically synchronize.
+Este repositorio es una copia independiente de `gateway` en [parklink-platform](https://github.com/1ASI0728-2620-16363-ParkLink/parklink-platform). Use el espacio integrado para la configuración npm, las dependencias compartidas, el contexto de Docker, las pruebas y la infraestructura local. Los repositorios no se sincronizan automáticamente.
